@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="nav">
+        <a href="../index.html">На головну</a>
+      </nav>
+    </header>
+    <main>
+      <h2>Web Storage API</h2>
+      <p>
+        Веб-сховище складається з локального сховища (<b>localStorage</b>) і сховища сеансів (<b>sessionStorage</b>).
+        <br />
+        Вони доступні як властивості об'єкта window і мають однакові властивості і методи
+      </p>
+      <span>
+        <b>setItem(key, value)</b> - створює новий, або оновлює вже існуючий запис у сховищі. <br />
+        <b>getItem(key)</b> - повертає зі сховища значення з ключем key.<br />
+        <b>removeItem(key)</b> - видаляє зі сховища запис з ключем key.<br />
+        <b>clear()</b> - повністю очищає всі записи сховища.<br />
+        <b>length</b> - кількість записів у сховищі.<br />
+      </span>
+      <p>
+        Локальне сховище (localStorage) - унікальне для кожного веб-застосунку і буде однаковим на декількох вкладках, в
+        яких він (веб-застосунок) запущений. Дані в локальному сховищі не видаляються, навіть після закриття браузера
+        або вимкнення комп'ютера. Щоб їх видалити, необхідно використовувати JavaScript.
+      </p>
+      <p>
+        Сховище сеансів (sessionStorage) схоже на локальне - воно також унікальне для кожного веб-застосунку, але час
+        життя збережених даних обмежений сесією вкладки браузера. Щойно користувач закриває вкладку або браузер, дані
+        очищаються.
+      </p>
+    </main>
+    <footer></footer>
+
+    <script type="module" src="./js/index.js"></script>
+  </body>
+</html>

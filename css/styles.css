@@ -1,0 +1,11 @@
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nav a {
+  width: fit-content;
+  padding: 5px;
+  outline: 1px dashed #ff4500;
+}

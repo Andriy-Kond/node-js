@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="nav">
+        <a href="../index.html">На головну</a>
+      </nav>
+    </header>
+    <main>
+      <h2>Формат JSON</h2>
+      <h3>JSON (JavaScript Object Notation)</h3>
+      <p>Значеннями властивостей у файлі JSON можуть бути типи: string, number, object, array, boolean і null.</p>
+
+      <h3>Метод JSON.stringify() перетворює значення у JSON</h3>
+      <p>Значеннями бути: number, object, array, boolean і null</p>
+      <p>string - це вже валідний JSON-рядок, тому в їх перетворенні немає сенсу.</p>
+      <p>методи об'єкту при перетворенні будуть проігноровані.</p>
+      <p>при спробі перетворити функцію в JSON, результатом буде <b>undefined</b>.</p>
+
+      <h3>Метод JSON.parse()</h3>
+      <p>Перетворює JSON-рядок у js</p>
+      <p>
+        Якщо методам класу JSON передати невалідний JSON, то вони «викинуть» помилку і весь скрипт впаде. Для уникнення
+        цього, використовується конструкція try...catch, яка дозволяє «ловити» і обробляти помилки виконання скрипта.
+      </p>
+      <span
+        ><b
+          >! З методом JSON.parse() необхідно використовувати конструкцію try...catch, щоб уникнути «падіння» скрипту,
+          якщо раптом прочитали невалідний JSON.</b
+        ></span
+      >
+      <p>
+        try { <br />
+        // Code that may throw a runtime error <br />
+        } catch (error) { <br />
+        // Error handling <br />
+        } <br />
+      </p>
+      <p>error - це об'єкт помилки, в якого є кілька корисних властивостей:</p>
+      <span>
+        <b>name</b> - тип помилки. Для помилки парса - це SyntaxError. <br />
+        <b>message</b> - повідомлення про деталі помилки.<br />
+        <b>stack</b> - стек викликів функцій на момент помилки. Використовується для налагодження.<br
+      /></span>
+    </main>
+    <footer></footer>
+
+    <script type="module" src="./js/typeConversion.js"></script>
+  </body>
+</html>
