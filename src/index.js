@@ -23,3 +23,30 @@ console.log(message);
 const validateEmail = email => validator.isEmail(email);
 console.log("validateEmail(email@mail.com):::", validateEmail("email@mail.com"));
 console.log("validateEmail(mail.com):::", validateEmail("mail.com"));
+
+// ^ Babel
+// .browserslistrc - сюди вставляю версії браузера, з якими має працювати код (https://browsersl.ist/). Наприклад, last 2 versions, або Firefox > 20
+// Або можна у файлі налаштувань самого babel (babel.config.json):
+// {
+//   "presets": [
+//     [
+//       "@babel/preset-env",
+//       {
+//         "targets": {
+//           "edge": "17",
+//           "firefox": "60",
+//           "chrome": "67",
+//           "safari": "11.1"
+//         },
+//         "useBuiltIns": "usage",
+//         "corejs": "3.6.5"
+//       }
+//     ]
+//   ]
+// }
+// babel.config.json має пріоритет перед .browserslistrc, але .browserslistrc може бути використаний іншими додатками.
+// замість .browserslistrc можна прописати інформацію з нього прямо у package.json:   "browserslist": "> 0.25%, not dead",
+// Але треба обрати - або .browserslistrc, або у package.json. Одразу у двох працювати не буде.
+
+const a = (b, c) => b * c;
+console.log("a:::", a);
