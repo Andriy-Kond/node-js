@@ -43,3 +43,53 @@ localStorage.removeItem("ui-theme");
 console.log('localStorage.getItem("ui-theme"):::', localStorage.getItem("ui-theme")); // null
 
 // ~ Очищення всього локального сховища: localStorage.clear();
+
+// * localStorage Service
+// Для того, щоб скоротити кількість повторюваного коду при роботі з веб-сховищем, можна написати сервіс зі стандартними методами, наприклад, save і load. Вони будуть абстрагувати повторюваний код перевірки помилок парса і подібну рутину.
+const set = (key, value) => {
+  try {
+    const jsonValue = JSON.stringify(value);
+    localStorage.setItem(key, jsonValue);
+  } catch (error) {
+    console.log("error.message :>>", error.message);
+  }
+};
+
+const get = key => {
+  try {
+    const jsonValue = localStorage.getItem(key);
+    return jsonValue === null ? undefined : JSON.parse(jsonValue);
+  } catch (error) {
+    console.log("error.message :>> ", error.message);
+  }
+};
+
+const remove = key => {
+  localStorage.removeItem(key);
+};
+
+// * Save to localStorage from form -> input/textarea
+const form = document.querySelector(".feedback-form");
+
+const LS_KEY = "formInput";
+const lsValue = get(LS_KEY);
+form.elements.message.value = lsValue ? lsValue : "";
+
+form.addEventListener("input", updateLS);
+form.addEventListener("submit", submitForm);
+
+function updateLS(e) {
+  set(LS_KEY, e.target.value);
+}
+
+function submitForm(e) {
+  e.preventDefault();
+  remove(LS_KEY);
+  form.reset();
+}
+
+export default {
+  set,
+  get,
+  remove,
+};
