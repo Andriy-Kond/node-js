@@ -6,11 +6,19 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node src/index.js",
+    "build": "babel src --out-dir dist"
   },
   "author": "Andrii Kondratovich <andrii.kondratovcih@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "joi": "^17.12.3",
+    "shortid": "^2.2.16",
+    "uuid.v4": "^1.0.0",
     "validator": "^13.11.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.24.1",
+    "@babel/core": "^7.24.4"
   }
 }

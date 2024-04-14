@@ -1,8 +1,3 @@
-import validator from "validator";
-
-const message = "NodeJS in amazing!";
-console.log(message);
-
 // npm init - ініціалізує npm в проекті і створює файл package.json
 // npm install - встановлює всі залежності, перелічені в package.json
 // npm list --depth=0 - виведе в терміналі список локально встановлених пакетів з номерами їх версій, без залежностей
@@ -12,6 +7,18 @@ console.log(message);
 // npm run [custom-script] - запустить кастомний скрипт, розташований в package.json
 // npm outdated - використовується для пошуку оновлень, виявить сумісні версії програмно і виведе список доступних оновлень
 // npm update - оновить всі пакети до максимально дозволеної версії
+
+import validator from "validator";
+import Joi from "joi";
+import shortid from "shortid";
+
+const passwordSchema = Joi.string().alphanum().min(3).max(10).required();
+console.log("passwordSchema.validate() :>> ", passwordSchema.validate("45645665j"));
+
+console.log("shortid.generate() :>> ", shortid.generate());
+
+const message = "NodeJS in amazing!";
+console.log(message);
 
 const validateEmail = email => validator.isEmail(email);
 console.log("validateEmail(email@mail.com):::", validateEmail("email@mail.com"));
